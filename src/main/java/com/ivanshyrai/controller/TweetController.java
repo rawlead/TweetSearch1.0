@@ -36,7 +36,7 @@ public class TweetController {
         return "resultPage";
     }
 
-    @RequestMapping(value = "postSearch",method = RequestMethod.POST)
+    @RequestMapping(value = "/postSearch",method = RequestMethod.POST)
     public String postSearch(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         String search = request.getParameter("search");
         if (search.toLowerCase().contains("junk")) {
@@ -44,6 +44,6 @@ public class TweetController {
             return "redirect:/";
         }
         redirectAttributes.addAttribute("search",search);
-        return "redirect:result";
+        return "redirect:/result";
     }
 }
