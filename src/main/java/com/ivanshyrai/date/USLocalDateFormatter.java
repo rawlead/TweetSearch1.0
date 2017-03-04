@@ -23,10 +23,13 @@ public class USLocalDateFormatter implements Formatter<LocalDate> {
     }
 
     public static String getPattern(Locale locale) {
-        return isUnitedStates(locale) ? NORMAL_PATTERN : US_PATTERN;
+        return isUnitedStates(locale) ? US_PATTERN : NORMAL_PATTERN;
     }
 
     public static boolean isUnitedStates(Locale locale) {
-        return Locale.US.getCountry().equals(locale.getCountry());
+//        System.out.println("US: " + Locale.US.getCountry());
+//        System.out.println("Locale: " + locale.getCountry());
+        return Locale.UK.getCountry().equals(locale.getCountry());
+
     }
 }
