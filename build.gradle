@@ -1,0 +1,40 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'masterproject'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-social-twitter')
+	// https://mvnrepository.com/artifact/org.webjars/materializecss
+	compile group: 'org.webjars', name: 'materializecss', version: '0.96.0'
+
+	// https://mvnrepository.com/artifact/org.webjars/jquery
+	compile group: 'org.webjars', name: 'jquery', version: '2.1.4'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
