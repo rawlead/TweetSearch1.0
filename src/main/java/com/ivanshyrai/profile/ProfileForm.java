@@ -1,5 +1,6 @@
 package com.ivanshyrai.profile;
 
+import com.ivanshyrai.date.PastLocalDate;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public class ProfileForm {
 
     // Verification annotations
+    // one of the options set error message
+    // cons - will be always in english
+    //@Size(min = 2, message = "Enter valid ID")
     @Size(min = 2)
     private String twitterHandle;
 
@@ -20,6 +24,7 @@ public class ProfileForm {
     private String email;
 
     @NotNull
+    @PastLocalDate // custom date validation annotation
     private LocalDate birthDate;
 
     @NotEmpty
