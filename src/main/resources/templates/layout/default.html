@@ -40,5 +40,16 @@
 </section>
 <script src="webjars/jquery/2.1.4/jquery.js"></script>
 <script src="webjars/materializecss/0.96.0/js/materialize.js"></script>
+
+    <!--validate only on save button(submit)-->
+<script layout:fragment="script">
+    $('button').bind('click', function(e) {
+        if (e.currentTarget.name == 'save') {
+            $(e.currentTarget.form).removeAttr('novalidate');
+        } else {
+            $(e.currentTarget.form).attr('novalidate', 'novalidate');
+        }
+    });
+</script>
 </body>
 </html>
