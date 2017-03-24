@@ -43,7 +43,7 @@ public class TweetController {
             redirectAttributes.addFlashAttribute("error", "Try another word!");
             return "redirect:/";
         }
-        redirectAttributes.addAttribute("search",search);
+        redirectAttributes.addAttribute("search", search);
         return "redirect:/result";
     }
 }

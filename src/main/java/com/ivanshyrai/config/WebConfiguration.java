@@ -1,6 +1,6 @@
 package com.ivanshyrai.config;
 
-import com.ivanshyrai.date.USLocalDateFormatter;
+import com.ivanshyrai.data.USLocalDateFormatter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

@@ -1,4 +1,4 @@
-package com.ivanshyrai.date;
+package com.ivanshyrai.data;
 
 import org.springframework.format.Formatter;
 

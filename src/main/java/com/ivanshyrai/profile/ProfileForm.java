@@ -1,6 +1,6 @@
 package com.ivanshyrai.profile;
 
-import com.ivanshyrai.date.PastLocalDate;
+import com.ivanshyrai.data.PastLocalDate;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -24,7 +24,7 @@ public class ProfileForm {
     private String email;
 
     @NotNull
-    @PastLocalDate // custom date validation annotation
+    @PastLocalDate // custom data validation annotation
     private LocalDate birthDate;
 
     @NotEmpty

@@ -36,7 +36,7 @@
                 <div th:errors="*{email}" class="red-text">--EMAIL ERROR--</div>
             </div>
         </div>
-        <!--birth date field-->
+        <!--bidatadate field-->
         <div class="row">
             <div class="input-field col s6">               <!-- gets @ModelAttribute("dateFormat") from controller -->
                 <input th:field="${profileForm.birthDate}"  th:errorclass="invalid" th:placeholder="${dateFormat}"
@@ -45,7 +45,7 @@
                 <div th:errors="*{birthDate}" class="red-text">--BIRTH DATE ERROR--</div>
             </div>
         </div>
-        <!--->
+
         <!--my preferences-->
         <fieldset class="row">
             <legend th:text="#{tastes.legend}">Preferences</legend>
