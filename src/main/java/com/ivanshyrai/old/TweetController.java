@@ -1,4 +1,4 @@
-package com.ivanshyrai.controller;
+package com.ivanshyrai.old;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.SearchResults;
@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
 public class TweetController {
 
     @Autowired
