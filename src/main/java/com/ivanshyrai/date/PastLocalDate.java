@@ -1,4 +1,4 @@
-package com.ivanshyrai.data;
+package com.ivanshyrai.date;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 import java.time.LocalDate;
 
 
-// data validate annotation (data cannot be after today data
+// date validate annotation (date cannot be after today date
 
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

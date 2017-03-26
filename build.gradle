@@ -30,6 +30,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-social-twitter')
+
+//	date format for jackson YYYY-MM-DDTHH:mm:ss which without configuration returns in an array format
+	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+
 	// https://mvnrepository.com/artifact/org.webjars/materializecss
 	compile group: 'org.webjars', name: 'materializecss', version: '0.96.0'
 

@@ -1,6 +1,6 @@
 package com.ivanshyrai.profile;
 
-import com.ivanshyrai.data.USLocalDateFormatter;
+import com.ivanshyrai.date.USLocalDateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -26,7 +26,7 @@ public class ProfileController {
         return userProfileSession.toForm();
     }
 
-    // Returns data format which depends on location to profilePage.html input field "Birth Date"
+    // Returns date format which depends on location to profilePage.html input field "Birth Date"
     @ModelAttribute("dateFormat")
     public String localeFormat(Locale locale) {
         return USLocalDateFormatter.getPattern(locale);

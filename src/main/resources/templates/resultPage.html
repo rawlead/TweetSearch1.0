@@ -11,8 +11,8 @@
         th:text="|Search results for ${object}|">Tweets</h2>
     <ul class="collection">
         <li class="collection-item avatar" th:each="tweet : ${tweets}">
-            <img th:src="${tweet.user.profileImageUrl}" alt="" class="circle"/>
-            <span class="title" th:text="${tweet.user.name}">User</span>
+            <img th:src="${tweet.profileImageUrl}" alt="" class="circle"/>
+            <span class="title" th:text="${tweet.user}">User name</span>
             <p th:text="${tweet.text}">Tweet content</p>
         </li>
     </ul>

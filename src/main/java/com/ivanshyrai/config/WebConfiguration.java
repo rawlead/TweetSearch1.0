@@ -1,12 +1,15 @@
 package com.ivanshyrai.config;
 
-import com.ivanshyrai.data.USLocalDateFormatter;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.ivanshyrai.date.USLocalDateFormatter;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -50,11 +53,20 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     }
 
 //    to be able to use array request variable( list?)
-
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         UrlPathHelper urlPathHelper = new UrlPathHelper();
         urlPathHelper.setRemoveSemicolonContent(false);
         configurer.setUrlPathHelper(urlPathHelper);
     }
+
+//    change jackson-datatype-jsr310 which returns date format in array to string format(timestamp)
+    @Bean
+    @Primary
+    public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
+        ObjectMapper objectMapper = builder.createXmlMapper(false).build();
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
+        return objectMapper;
+    }
 }
+
