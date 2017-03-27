@@ -58,6 +58,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         UrlPathHelper urlPathHelper = new UrlPathHelper();
         urlPathHelper.setRemoveSemicolonContent(false);
         configurer.setUrlPathHelper(urlPathHelper);
+        configurer.setUseRegisteredSuffixPatternMatch(true);
     }
 
 //    change jackson-datatype-jsr310 which returns date format in array to string format(timestamp)
