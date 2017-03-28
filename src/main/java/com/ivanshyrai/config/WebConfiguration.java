@@ -18,10 +18,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.util.UrlPathHelper;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.time.LocalDate;
 
 @Configuration
+@EnableSwagger2
 public class WebConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addFormatters(FormatterRegistry registry) {
@@ -29,7 +33,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public LocaleResolver localeResolver(){
+    public LocaleResolver localeResolver() {
         return new SessionLocaleResolver();
     }
 
@@ -45,14 +49,14 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
-//    tomcat exception handler
+    //    tomcat exception handler
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
         return container -> container.addErrorPages(
                 new ErrorPage(MultipartException.class, "/uploadError"));
     }
 
-//    to be able to use array request variable( list?)
+    //    to be able to use array request variable( list?)
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         UrlPathHelper urlPathHelper = new UrlPathHelper();
@@ -61,13 +65,22 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         configurer.setUseRegisteredSuffixPatternMatch(true);
     }
 
-//    change jackson-datatype-jsr310 which returns date format in array to string format(timestamp)
+    //    change jackson-datatype-jsr310 which returns date format in array to string format(timestamp)
     @Bean
     @Primary
     public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         return objectMapper;
+    }
+
+    //    interface api rest swagger2
+    @Bean
+    public Docket userApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .paths(path -> path.startsWith("/api/"))
+                .build();
     }
 }
 

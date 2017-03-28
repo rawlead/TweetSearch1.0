@@ -1,13 +1,14 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
 }
 
 apply plugin: 'java'
@@ -15,30 +16,44 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'masterproject'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'masterproject'
+    version = '0.0.1-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
+//	get responds in xml format
+//compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-social-twitter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-social-twitter')
+
+    // thymeleaf spring security(access control)
+    compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
+
+//	spring basic authentication
+    compile('org.springframework.boot:spring-boot-starter-security')
 
 //	date format for jackson YYYY-MM-DDTHH:mm:ss which without configuration returns in an array format
-	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
 
-	// https://mvnrepository.com/artifact/org.webjars/materializecss
-	compile group: 'org.webjars', name: 'materializecss', version: '0.96.0'
+//	SpringFox
+//	Automated JSON API documentation for API's built with Spring
+//	http://localhost:8080/swagger-ui.html
+    compile('io.springfox:springfox-swagger2:2.1.2')
+    compile('io.springfox:springfox-swagger-ui:2.1.2')
 
-	// https://mvnrepository.com/artifact/org.webjars/jquery
-	compile group: 'org.webjars', name: 'jquery', version: '2.1.4'
+    // https://mvnrepository.com/artifact/org.webjars/materializecss
+    compile group: 'org.webjars', name: 'materializecss', version: '0.96.0'
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    // https://mvnrepository.com/artifact/org.webjars/jquery
+    compile group: 'org.webjars', name: 'jquery', version: '2.1.4'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
