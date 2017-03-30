@@ -55,7 +55,6 @@ public class UserApiController {
                                            @RequestBody User user) throws EntityNotFoundException {
 //        if (!userRepository.exists(email))
 //            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//
         User saved = userRepository.update(email, user);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }

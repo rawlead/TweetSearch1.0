@@ -34,6 +34,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-social-twitter')
 
+
+
     // thymeleaf spring security(access control)
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
 
@@ -56,4 +58,8 @@ dependencies {
     compile group: 'org.webjars', name: 'jquery', version: '2.1.4'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    //    redis db
+    compile('org.springframework.boot:spring-boot-starter-data-redis')
+    compile('org.springframework.session:spring-session:1.0.1.RELEASE')
 }

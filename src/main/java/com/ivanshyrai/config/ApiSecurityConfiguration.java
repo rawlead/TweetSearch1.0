@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+// REST API common HTTP config
 
 //@EnableGlobalMethodSecurity(securedEnabled = true) // enables to define level of security for methods and classes
 @Configuration
@@ -18,6 +19,7 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configureAuth(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user").password("user").roles("USER").and()
+                .withUser("ivan").password("ivan").roles("USER", "ADMIN").and()
                 .withUser("admin").password("admin").roles("USER", "ADMIN");
     }
 
@@ -34,9 +36,9 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE).hasRole("ADMIN")
                 .anyRequest().authenticated();
     }
+}
 
-
-    //    @Override
+//    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //                http
 //                .httpBasic().and()
@@ -49,4 +51,3 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
 //                .anyRequest().authenticated();
 //    }
-}
