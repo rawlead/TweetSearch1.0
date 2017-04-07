@@ -30,7 +30,8 @@ repositories {
 //compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
+//    compile('org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE')
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE")
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-social-twitter')
 
@@ -62,4 +63,7 @@ dependencies {
     //    redis db
     compile('org.springframework.boot:spring-boot-starter-data-redis')
     compile('org.springframework.session:spring-session:1.0.1.RELEASE')
+
+    //test
+    compile('org.springframework.boot:spring-boot-starter-test') // hamcrest, mockito, spring-test
 }
