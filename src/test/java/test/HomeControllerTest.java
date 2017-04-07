@@ -1,7 +1,6 @@
-package com.ivanshyrai.controller;
+package test;
 
-import com.ivanshyrai.SessionBuilder;
-import com.ivanshyrai.profile.UserProfileSession;
+import test.SessionBuilder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +13,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import java.util.Arrays;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -52,7 +49,7 @@ public class HomeControllerTest {
         this.mockMvc.perform(get("/")
                 .session(session))
                 .andExpect(status().isFound())
-                .andExpect(redirectedUrl("/search/mixed;keywords=spring,groovy"));
+                .andExpect(redirectedUrl("/test/search/mixed;keywords=spring,groovy"));
     }
 
     //default mock http session
@@ -64,7 +61,7 @@ public class HomeControllerTest {
 //        session.setAttribute("scopedTarget.userProfileSession",sessionBean);
 //        this.mockMvc.perform(get("/").session(session))
 //                .andExpect(status().isFound())
-//                .andExpect(redirectedUrl("/search/mixed;keywords=spring,groovy"));
+//                .andExpect(redirectedUrl("/test.search/mixed;keywords=spring,groovy"));
 //    }
 
 

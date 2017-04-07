@@ -31,18 +31,18 @@ public class TweetController {
         SearchResults searchResults = twitter.searchOperations().search(search);
         List<Tweet> tweets = searchResults.getTweets();
         model.addAttribute("tweets",tweets);
-        model.addAttribute("search",search);
+        model.addAttribute("test.search",search);
         return "resultPage";
     }
 
     @RequestMapping(value = "/postSearch",method = RequestMethod.POST)
     public String postSearch(HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        String search = request.getParameter("search");
+        String search = request.getParameter("test.search");
         if (search.toLowerCase().contains("junk")) {
             redirectAttributes.addFlashAttribute("error", "Try another word!");
             return "redirect:/";
         }
-        redirectAttributes.addAttribute("search", search);
+        redirectAttributes.addAttribute("test.search", search);
         return "redirect:/result";
     }
 }

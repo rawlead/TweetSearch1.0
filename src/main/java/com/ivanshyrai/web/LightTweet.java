@@ -1,4 +1,4 @@
-package com.ivanshyrai.search;
+package com.ivanshyrai.web;
 
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.TwitterProfile;

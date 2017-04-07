@@ -45,7 +45,7 @@ public class ProfileController {
         }
         userProfileSession.saveForm(profileForm);
         System.out.println("Profile has been saved - " + profileForm);
-        return "redirect:/search/mixed;keywords=" + String.join(",",profileForm.getTastes());
+        return "redirect:/test.search/mixed;keywords=" + String.join(",",profileForm.getTastes());
     }
 
     @RequestMapping(value = "/profile", params = {"addTaste"})

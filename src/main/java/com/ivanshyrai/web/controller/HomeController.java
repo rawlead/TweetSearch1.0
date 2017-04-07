@@ -1,4 +1,4 @@
-package com.ivanshyrai.controller;
+package com.ivanshyrai.web.controller;
 
 import com.ivanshyrai.profile.UserProfileSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,6 @@ public class HomeController {
         List<String> tastes = userProfileSession.getTastes();
         if (tastes.isEmpty())
             return "redirect:/profile";
-        return "redirect:/search/mixed;keywords=" + String.join(",",tastes);
+        return "redirect:/test.search/mixed;keywords=" + String.join(",",tastes);
     }
 }

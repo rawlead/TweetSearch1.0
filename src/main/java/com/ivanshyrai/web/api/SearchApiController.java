@@ -1,15 +1,15 @@
-package com.ivanshyrai.search.api;
+package com.ivanshyrai.web.api;
 
-import com.ivanshyrai.search.LightTweet;
-import com.ivanshyrai.search.SearchService;
+import com.ivanshyrai.web.LightTweet;
+import com.ivanshyrai.web.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/search")
-public class SearchApiController {
+@RequestMapping("/api/test.search")     //  test
+public class SearchApiController /*implements TwitterSearch*/ {
     private SearchService searchService;
 
     @Autowired

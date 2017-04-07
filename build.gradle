@@ -35,7 +35,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-social-twitter')
 
-
+//
 
     // thymeleaf spring security(access control)
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
@@ -61,9 +61,52 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     //    redis db
-    compile('org.springframework.boot:spring-boot-starter-data-redis')
-    compile('org.springframework.session:spring-session:1.0.1.RELEASE')
+//    compile('org.springframework.boot:spring-boot-starter-data-redis')
+//    compile('org.springframework.session:spring-session:1.0.1.RELEASE')
 
     //test
     compile('org.springframework.boot:spring-boot-starter-test') // hamcrest, mockito, spring-test
+
+//    REST tests with json
+    testCompile 'com.jayway.jsonpath:json-path'
+
+//    FluentLenium(Selenium) integrated test
+    testCompile 'org.fluentlenium:fluentlenium-assertj:0.10.3'
+    testCompile 'org.com.codebourne:phantomjsdriver:1.2.1'
+    testCompile 'org.seleniumhq.selenium:selenium-java:2.45.0'
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver
+//    compile group: 'org.seleniumhq.selenium', name: 'selenium-safari-driver', version: '3.3.1'
+
 }
+
+
+// integrated tests
+configurations {
+//    integrationTestCompile.extendsFrom testCompile
+//    integrationTestRuntime.extendsFrom testRuntime
+
+    //FluentLenium integrated test
+    testCompie {
+//        exclude module: 'selenium-safari-driver'
+        exclude module: 'selenium-ie-driver'
+        exclude module: 'selenium-firefox-driver'
+        exclude module: 'selenium-htmlunit-driver'
+        exclude module: 'selenium-chrome-driver'
+    }
+}
+//sourceSets {
+//    integrationTests {
+//        compileClasspath += main.output + test.output
+//        runtimeClasspath += main.output + test.output
+//    }
+//    tasks {
+//        task integrationTest(type: Test) {
+//            testClassesDir = sourceSets.integrationTest.output.classesDir
+//            classpath = sourceSets.integrationTest.runtimeClasspath
+//            reports.html.destination = file("${reporting.baseDir}/integrationTests") //src/integrationTests/{java||groovy}
+//        }
+//    }
+//
+//}
+
