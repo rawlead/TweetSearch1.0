@@ -1,7 +1,8 @@
 package com.ivanshyrai.web.controller;
 
+import com.ivanshyrai.search.ParallelSearchService;
 import com.ivanshyrai.web.LightTweet;
-import com.ivanshyrai.web.SearchService;
+import com.ivanshyrai.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.MatrixVariable;
@@ -13,10 +14,14 @@ import java.util.List;
 
 @Controller                        // test
 public class SearchController /*implements TwitterSearch*/ {
-    private SearchService searchService;
+
+//    private SearchService searchService;
+
+//    async
+    private ParallelSearchService searchService;
 
     @Autowired
-    public SearchController(SearchService searchService) {
+    public SearchController(ParallelSearchService searchService) {
         this.searchService = searchService;
     }
 
